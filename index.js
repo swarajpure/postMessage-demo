@@ -1,12 +1,14 @@
 const redirectionBtn = document.querySelector('#redirection-btn');
+const paymentStatus = document.querySelector('#payment-status');
 
 redirectionBtn.addEventListener('click', () => {
   window.open('./newTab.html');
 });
 
 window.addEventListener('message', (e) => {
-  const { hasUserClicked } = e.data;
-  if (hasUserClicked) {
-    console.info('User has clicked the button on the other tab!');
+  const { isPaymentCompleted } = e.data;
+  if (isPaymentCompleted) {
+    console.info('User has completed payment from the other tab!');
+    paymentStatus.textContent = 'true';
   }
 });
