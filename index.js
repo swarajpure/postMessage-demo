@@ -2,7 +2,7 @@ const redirectionBtn = document.querySelector('#redirection-btn');
 const paymentStatus = document.querySelector('#payment-status');
 
 redirectionBtn.addEventListener('click', () => {
-  window.open('./newTab.html');
+  window.open('./payment.html');
 });
 
 window.addEventListener('message', (e) => {
@@ -11,4 +11,5 @@ window.addEventListener('message', (e) => {
     console.info('User has completed payment from the other tab!');
     paymentStatus.textContent = 'true';
   }
+  redirectionBtn.setAttribute('disabled', true);
 });
